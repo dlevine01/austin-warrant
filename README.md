@@ -22,7 +22,7 @@ This project used unusually available data from Austin, TX to find the prevalenc
 - This project was able to collect full records of individuals in Austin, TX who have outstanding warrants stemming from municipal citations
 - There are more than 20,000 such individuals in Austin
 - Compared to some other jurisdictions, Austin has relatively few outstanding warrants. If the distribution of warrants is the same in St. Louis (where it has been shown there are many more outstanding warrants), 22 percent of the population there faces a warrant from a municipal citation.
-![Austin St. Louis comparison](/static/img/Austin-StLouis-warrant-comparison.png)
+![Austin St. Louis comparison](/img/Austin-StLouis-warrant-comparison.png)
 - There are correlations between the areas with home to more individuals with outstanding  warrants and areas with larger Hispanic or Latino populations, as well as areas with lower median incomes. ![warrant prevalence by tract](/static/img/warrant-prevalene-by-tract-map-with-hist.png)
     - The number of Hispanic or Latino individuals, the number of households receiving SNAP benefits, plus controlling for the number of police stops and for neighborhood effects, can explain about 70 percent of the variation in the number of warrants.
     - This model suggests that each for additional 33 Hispanic or Latino residents or each additional 7 households receiving SNAP benefits in a Census Tract, there is one additional individual facing a warrant
