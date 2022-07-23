@@ -23,18 +23,18 @@ This project used unusually available data from Austin, TX to find the prevalenc
 - There are more than 20,000 such individuals in Austin
 - Compared to some other jurisdictions, Austin has relatively few outstanding warrants. If the distribution of warrants is the same in St. Louis (where it has been shown there are many more outstanding warrants), 22 percent of the population there faces a warrant from a municipal citation.
 ![Austin St. Louis comparison](/img/Austin-StLouis-warrant-comparison.png)
-- There are correlations between the areas with home to more individuals with outstanding  warrants and areas with larger Hispanic or Latino populations, as well as areas with lower median incomes. ![warrant prevalence by tract](/static/img/warrant-prevalene-by-tract-map-with-hist.png)
+- There are correlations between the areas with home to more individuals with outstanding  warrants and areas with larger Hispanic or Latino populations, as well as areas with lower median incomes. ![warrant prevalence by tract](/img/warrant-prevalene-by-tract-map-with-hist.png)
     - The number of Hispanic or Latino individuals, the number of households receiving SNAP benefits, plus controlling for the number of police stops and for neighborhood effects, can explain about 70 percent of the variation in the number of warrants.
     - This model suggests that each for additional 33 Hispanic or Latino residents or each additional 7 households receiving SNAP benefits in a Census Tract, there is one additional individual facing a warrant
 - The spatial patterns of warrant assignment are fundamentally different among high-, medium-, and low-income neighborhoods. There is (perhaps unsurprisingly) little variation among high-income neighborhoods, there _is_ much more variation in warrant prevalence across low-income neighborhoods. 
     - Looking specifically at the local _density_ of warrants, there is a underlying spatial similarity in high-income neighborhoods, but, surprisingly, little spatial similarity among low-income neighborhoods. This means, generally, that the concentrations of warrants in low-income neighborhoods are driven by unique, very local factors and not by a more diffuse condition across a larger area or side of town.
 
-![map warrant prevalence by Tract by income quantile](/static/img/map-tract-prevalence-by-income-quantile.png) 
-![semivariogram warrant prevalence by Tract by income quantile](/static/img/semivariogram-tract-prevalence-by-income-quantile.png)
-![histogram warrant prevalence by Tract by income quantile](/static/img/hist-tract-prevalence-by-income-quantile.png)
+![map warrant prevalence by Tract by income quantile](/img/map-tract-prevalence-by-income-quantile.png) 
+![semivariogram warrant prevalence by Tract by income quantile](/img/semivariogram-tract-prevalence-by-income-quantile.png)
+![histogram warrant prevalence by Tract by income quantile](/img/hist-tract-prevalence-by-income-quantile.png)
 ## _How I did it:_
 
-It’s a long story! For the full details (footnotes and all), check out the full technical reports covering the project background and [fairness analysis](/static/files/How-Extraordinary-Is-a-Police-Stop-With-an-Open-Warrant.pdf) and the [spatial and geostatistical analysis](/static/files/Finding-spatial-concentrations-and-discrimination-in-arrest-warrants-stemming-from-low-level-citations.pdf) (_pdf_).
+It’s a long story! For the full details (footnotes and all), check out the full technical reports covering the project background and [fairness analysis](/files/How-Extraordinary-Is-a-Police-Stop-With-an-Open-Warrant.pdf) and the [spatial and geostatistical analysis](/files/Finding-spatial-concentrations-and-discrimination-in-arrest-warrants-stemming-from-low-level-citations.pdf) (_pdf_).
 
 Here are the basic steps:
 
@@ -60,7 +60,7 @@ I summed the number of individuals with outstanding warrants within each Census 
 
 The strongest demographic indicators of warrant prevalence were indicators of area income and the Hispanic or Latino population. Spatially-lagged linear regression of the log of warrant prevalence rate by tract median income, the best-fitting model, showed an R2 score of 0.45. 
 
-![log warrant prevalence ~ median income](/static/img/Austin-log-warrant-prevalence-median-income.png)
+![log warrant prevalence ~ median income](/img/Austin-log-warrant-prevalence-median-income.png)
 
 The total number count of Latino or Hispanic residents in a Census Tract also correlated linearly with the prevalence of warrants. The spatially lagged regression showed an R2 fit of 0.44. This suggests that the number of Hispanic or Latino residents in in a neighborhood explains nearly half the variation in the warrant prevalence.
 
@@ -87,8 +87,8 @@ By splitting the data between income groups and comparing the measured semivaria
 
 I summed the individuals with warrants within each hex bin (because the bins are equal in area, the sum is also the relative density), ascribed the median income of the Census Tract in which the bin centroid sat to the bin, split the bins into three quantiles based on median income, then computed the semivariance for each income quantile.
 
-![semivariance by income](/static/img/semivariance-hexbin-density-by-income-quantile.png)
-![warrant density](/static/img/hexbin-density-by-income-quantile-with-range.png)
+![semivariance by income](/img/semivariance-hexbin-density-by-income-quantile.png)
+![warrant density](/img/hexbin-density-by-income-quantile-with-range.png)
 
 The lowest income group shows a much higher semivariance and the narrowest range. Comparatively, the middle- and top-third income groups show much lower semivariance overall. The middle income group has a slightly wider range than the bottom income group. The range for the highest income is much greater than the others.
 
@@ -100,9 +100,9 @@ The pattern of the density of warrants could simply represent the overall popula
 
 I tool the prevalence by Census Tract, computed above, split Tracts into three income quantiles, then computed the semivariance of prevalence between Tract centroids.
 
-![map warrant prevalence by Tract by income quantile](/static/img/map-tract-prevalence-by-income-quantile.png) 
-![semivariogram warrant prevalence by Tract by income quantile](/static/img/semivariogram-tract-prevalence-by-income-quantile.png)
-![histogram warrant prevalence by Tract by income quantile](/static/img/hist-tract-prevalence-by-income-quantile.png)
+![map warrant prevalence by Tract by income quantile](/img/map-tract-prevalence-by-income-quantile.png) 
+![semivariogram warrant prevalence by Tract by income quantile](/img/semivariogram-tract-prevalence-by-income-quantile.png)
+![histogram warrant prevalence by Tract by income quantile](/img/hist-tract-prevalence-by-income-quantile.png)
 
 As before, the variance is much higher within the lowest income group, again suggesting more variation in the assignment of warrants across low-income neighborhoods. The high-income group has the lowest variance, the middle-income group sits evenly between the other two.
 
